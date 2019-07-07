@@ -27,10 +27,35 @@
             <strong>hola<span class="at">@</span>icetart.com</strong>
         </a>
     </div>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            xfbml            : true,
+            version          : 'v3.3'
+            });
+        };
 
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="421419255118998"
+        logged_in_greeting="¡Hola! !Estaremos encantados de conocerte, saber más de tus proyectos!"
+        logged_out_greeting="¡Hola! !Estaremos encantados de conocerte, saber más de tus proyectos!">
+    </div>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("Jul 6, 2019 15:37:25").getTime();
+        var countDownDate = new Date("Jul 12, 2019 15:37:25").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
