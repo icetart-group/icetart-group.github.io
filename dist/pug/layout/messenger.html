@@ -1,0 +1,21 @@
+
+<div class="messenger">
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+    FB.init({
+    xfbml            : true,
+    version          : 'v3.3'
+    });
+    };
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+    //js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1'
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div class="fb-customerchat" page_id="421419255118998" theme_color="#0084ff" logged_in_greeting="¡Hola! !Estaremos encantados de conocerte, saber más de tus proyectos!" logged_out_greeting="¡Hola! !Estaremos encantados de conocerte, saber más de tus proyectos!"></div>
+</div>
