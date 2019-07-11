@@ -1,0 +1,52 @@
+script#cm-wmskml-template(type='text/x-template')
+    #modalWMSKML.modal.fade.in(role='dialog', aria-labelledby='modal wms kml', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header.modal-draggable
+                    h5#exampleModalLabel.modal-title Agregar WMS/KML
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .addExtenal
+                        .addwms.card.m-b-0
+                            label Seleccione el tipo:
+                            select.p-l-10.p-t-10.p-b-10(name="tipo_layer", v-model="tipo_layer")
+                                option(value="wms") WMS
+                                option(value="kml") KML
+                        .addwms.card(v-show="tipo_layer == 'wms'")
+                            p.alert.alert-success(v-if='WMSMessage.length > 0') {{WMSMessage}}
+                            .form-group.m-b-10
+                                label(style='width: 70px', for='') WMS: 
+                                input.custom-input(type='text', v-model='wmsNew')
+                            .form-group.m-b-10
+                                label(style='width: 70px', for='') Capa: 
+                                input.custom-input(type='text', v-model='wmsLayerNew')
+                            .form-group.m-b-10
+                                label(style='width: 70px', for='') Nombre: 
+                                input.custom-input(type='text', v-model='wmsNameNew')
+                            .form-kmws(@click='addWMS')
+                                a.btn.btn-primary(href='#') Agregar
+                        .addwms.card(v-show="tipo_layer == 'kml'")
+                            p.alert.alert-success(v-if='KMLMessage.length > 0') {{KMLMessage}}
+                            .form-group.m-b-10
+                                label(style='width: 70px', for='') KML: 
+                                input.custom-input(type='text', v-model='kmlNew')   
+                            .form-group.m-b-10
+                                label(style='width: 70px', for='') Nombre: 
+                                input.custom-input(type='text', v-model='kmlNameNew')                         
+                            .form-kmws(@click='addKML2')
+                                a.btn.btn-primary(href='#') Agregar
+                            //-
+                                    <div class="addkml card">
+                                        <h4>Agregar KML</h4>
+                                        <div class="form-group form-add" @click="addKML">
+                                            <a href="#" class="btn btn-primary">Agregar</a>
+                                        </div>
+                                        <div class="form-group m-b-10">
+                                            <label style="width: 70px" for="">Archivo: </label>
+                                            <input type="file" id="filekml" name="filekml" @change="kmlChange" class="custom-input">
+                                            <p>{{kmlNew}}</p>
+                                            <p v-if="KMLMessage.length > 0" class="alert alert-success">{{KMLMessage}}</p>
+                                        </div>
+                                    </div>
+                                    -->

@@ -1,0 +1,49 @@
+#modalEntrega{
+    .list-entregas{
+        font-size: 13px;
+    }
+    .track-lapse{
+        .lapse-option{
+            display: inline-block;
+            width: 100px;
+            &.lapse-select{
+                width: 160px;
+            }
+            select{
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-left: 5px;
+            }
+        }
+        .realtime-track{
+            margin-right: 3px;
+        }
+    }
+    .entrega-resumen{
+        padding: 15px;
+        ul{
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        li{
+            margin-top: 5px
+        }
+    }
+    .no-icon{
+        select, input{
+            width: 75px;
+        }
+    }
+}
+.track-lapse-detail, .bloq-lapse-detail{
+    margin-top: 5px;
+    padding: 5px 10px 10px;
+    background: #eee;
+    span{
+        display: block;
+    }
+    .lapse-detail{
+        margin-bottom: 4px;
+    }
+}

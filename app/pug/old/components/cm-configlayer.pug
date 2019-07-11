@@ -1,0 +1,31 @@
+script#cm-configlayer-template(type='text/x-template')
+    #modalConfigLayer.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modal config', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Configurar capas
+                    button.close.m-l-10(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .form-group
+                        label(for='') Rol: 
+                        select.custom-select(name='', id='', v-model='rolSelect', @change='changeRol')
+                            option(value='') Seleccionar
+                            option(v-for='(rol, index) in rolStore.rols', :key='index', :value='rol.rolname') {{rol.rolname}}
+                        a.btn.btn-primary.f-right(href='#', v-bind:class='[disabledConfL]', @click='saveConfigLayer') Guardar
+                    b.m-b-10 Listado de capas:
+                    #configLayer-list.titular-list.table-responsive
+                        table.table.table-hover.table-sm
+                            thead
+                                tr
+                                    th  - 
+                                    th Grupo
+                                    th Capa
+                            tbody
+                                tr(v-for='(capa, index) in capaStore.capas', :key='index')
+                                    td
+                                        input(type='checkbox', :data-layer-index='capa.id_capa', :checked='capa.checked')
+                                    td {{capa.tg_config_grupo.grupo}}
+                                    td {{capa.nomb_capa}}
+                    i.fa.fa-spinner.fa-spin.configLLoad
+                    .charge.configLLoad

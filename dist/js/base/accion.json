@@ -1,0 +1,36 @@
+{  
+   "data":[  
+      	{  
+	        "id_tipo":1,
+            "codigo":"Q",
+            "nombre":"Qocha"
+      	},
+        {  
+            "id_tipo":3,
+            "codigo":"A",
+            "nombre":"Amunas"
+        },
+        {  
+            "id_tipo":2,
+            "codigo":"Z",
+            "nombre":"Zanjas de infiltración"
+        },
+        {  
+	        "id_tipo":5,
+            "codigo":"R",
+            "nombre":"Reforestación"
+      	},
+        {  
+            "id_tipo":4,
+            "codigo":"V",
+            "nombre":"Revegetación"
+        },
+        {  
+            "id_tipo":6,
+            "codigo":"B",
+            "nombre":"Bofedales"
+        }
+   ],
+   "total":6,
+   "success":true
+}

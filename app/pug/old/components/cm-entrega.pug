@@ -1,0 +1,206 @@
+script#cm-entrega-template(type='text/x-template')
+    #modalEntrega.modal.modal-new(tabindex='-1', role='dialog', aria-labelledby='modal config', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5.modal-title Entrega
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .filter-pedidos(v-show="!showTable")
+                        .form-group.filter-track
+                            label(style='width: 100px', for='filterTrack') Filtrar por: 
+                            .search-track.search.input-icon
+                                input(type="text", name="filterTrack", placeholder="Nombre...", v-model="filter.name")
+                                i.fa.fa-truck
+                        .form-group.temp-track
+                            label(style='width: 100px', for='filterTime') Fecha/Tiempo: 
+                            .track-lapse
+                                div.lapse-option
+                                    label.active(for="realtime-entrega1")
+                                        input#realtime-entrega1(type="radio", name="lapse", value="exact", v-model="filter.lapse")
+                                        | Exacto
+                                div.lapse-option.lapse-select
+                                    label.active(for="realtime-entrega2")
+                                        input#realtime-entrega2(type="radio", name="lapse", value="range", v-model="filter.lapse")
+                                        | Rango
+                                    select(disabled="disabled", v-if="filter.lapse == 'exact'")
+                                        option(value="") - - -
+                                    select(v-if="filter.lapse == 'range'", v-model="filter.rangetype")
+                                        option(value="diario") Diario
+                                        option(value="mensual") Mensual
+                                //-br
+                                //-label(for="#realtime-track")
+                                    input#realtime-track(type="radio", name="")
+                                    | Rango de tiempo
+                            .bloq-lapse-detail
+                                template(v-if="filter.lapse == 'exact'")
+                                    .lapse-detail
+                                        span Fecha
+                                        .calendar-track.calendar.input-icon
+                                            input(type="date", name="filterTrackCalendar", v-model="filter.exactD")
+                                            i.fa.fa-calendar
+                                        //-.time-track.time.input-icon
+                                            input(type="time", name="filterTrack", v-model="filter.exactT")
+                                            i.fa.fa-clock-o
+                                template(v-if="filter.lapse == 'range'")
+                                    template(v-if="filter.rangetype == 'diario'")
+                                        .lapse-detail
+                                            span Desde
+                                            .calendar-track.calendar.input-icon
+                                                input(type="date", name="filterTrackCalendar", v-model="filter.rangeDa")
+                                                i.fa.fa-calendar
+                                            .time-track.time.input-icon
+                                                input(type="time", name="filterTrack", v-model="filter.rangeTa")
+                                                i.fa.fa-clock-o
+                                        .lapse-detail
+                                            span Hasta
+                                            .calendar-track.calendar.input-icon
+                                                input(type="date", name="filterTrack", v-model="filter.rangeDb")
+                                                i.fa.fa-calendar
+                                            .time-track.time.input-icon
+                                                input(type="time", name="filterTrack", v-model="filter.rangeTb")
+                                                i.fa.fa-clock-o
+                                    template(v-if="filter.rangetype == 'mensual'")
+                                        .lapse-detail
+                                            span Desde
+                                            .input-icon.no-icon
+                                                select(name="", v-model="filter.rangeMd")
+                                                    option(value="01") Enero
+                                                    option(value="02") Febrero
+                                                    option(value="03") Marzo
+                                                    option(value="04") Abril
+                                                    option(value="05") Mayo
+                                                    option(value="06") Junio
+                                                    option(value="07") Julio
+                                                    option(value="08") Agosto
+                                                    option(value="09") Setiembre
+                                                    option(value="10") Octubre
+                                                    option(value="11") Noviembre
+                                                    option(value="12") Diciembre
+                                                input(type="number", name="", placeholder="Año", v-model="filter.rangeYd")
+                                        .lapse-detail
+                                            span Hasta
+                                            .input-icon.no-icon
+                                                select(name="", v-model="filter.rangeMh")
+                                                    option(value="01") Enero
+                                                    option(value="02") Febrero
+                                                    option(value="03") Marzo
+                                                    option(value="04") Abril
+                                                    option(value="05") Mayo
+                                                    option(value="06") Junio
+                                                    option(value="07") Julio
+                                                    option(value="08") Agosto
+                                                    option(value="09") Setiembre
+                                                    option(value="10") Octubre
+                                                    option(value="11") Noviembre
+                                                    option(value="12") Diciembre
+                                                input(type="number", name="", placeholder="Año", v-model="filter.rangeYh")
+                        .form-group.form-action
+                            a.clear-track.btn.btn-link(href="#", @click="cleanFilter") Limpiar
+                            a.do.do-track.btn.btn-primary(href="#", @click="toTable") Aplicar
+                        i.fa.fa-spinner.fa-spin.trackLoad(style="display: none")
+                        .charge.trackLoad(style="display: none")
+                    .list-entregas(v-show="showTable")
+                        a.return-back(href="#", @click="toFilter") << Volver a filtrado
+                        .form-tablart
+                            ul.tablart-header.nav.nav-tabs(role="tablist")
+                                li.nav-item
+                                    a#nav-table-resumen-tab.nav-link.active(data-toggle="tab", href="#nav-entrega-resumen", role="tab", aria-controls="nav-table-resumen", aria-selected="true") Resumen
+                                li.nav-item
+                                    a#nav-table-pedido-tab.nav-link(data-toggle="tab", href="#nav-table-entrega", role="tab" aria-controls="nav-table-pedido" aria-selected="false") Listado
+                                //li.nav-item
+                                    a#nav-graph-pedido-tab.nav-link(data-toggle="tab", href="#nav-graph-entrega", role="tab" aria-controls="nav-graph-pedido" aria-selected="false") Grafico
+                            .tablart-content.tab-content.mheight
+                                #nav-entrega-resumen.table-bloq.table-resp.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="nav-table-resumen-tab")
+                                    .entrega-resumen
+                                        h5 Resumen de pedidos
+                                        .entrega-resumen-date
+                                            strong Fecha: 
+                                            template(v-if="filter.lapse == 'exact'")
+                                                span {{filter.exactD}}
+                                            template(v-if="filter.lapse == 'range'")
+                                                template(v-if="filter.rangetype == 'diario'")
+                                                    span {{filter.rangeDa}} - {{filter.rangeDb}}
+                                                template(v-if="filter.rangetype == 'mensual'")
+                                                    span {{filter.rangeMd}}/{{filter.rangeYd}} - {{filter.rangeMh}}/{{filter.rangeYh}}
+                                        ul
+                                            template(v-if="filter.rangetype == 'diario' || filter.lapse == 'exact'")
+                                                li
+                                                    strong Completos: 
+                                                    span {{ totalComplete }}
+                                                li
+                                                    strong Incompletos: 
+                                                    span {{ entregaStore.pedidos.length - totalComplete }}
+                                                li
+                                                    strong % Productos entregados: 
+                                                    span {{ Math.round(porcEntreg*100)/100 }} %
+                                            template(v-if="filter.rangetype == 'mensual' && filter.lapse == 'range'")
+                                                li
+                                                    strong Con un viaje: 
+                                                    span {{ totalUno }}
+                                                li
+                                                    strong Con dos viajes: 
+                                                    span {{ totalDos }}
+                                                li
+                                                    strong Con más de dos viajes: 
+                                                    span {{ totalDosMas }}
+                                                li
+                                                    strong Promedio de viajes: 
+                                                    span {{ promedioTotal }}
+                                #nav-table-entrega.table-bloq.table-resp.tab-pane.fade.show(role="tabpanel" aria-labelledby="nav-table-pedido-tab")
+                                    .table-responsive
+                                        table.table.table-daily(v-if="filter.rangetype == 'diario' || filter.lapse == 'exact'")
+                                            thead
+                                                tr
+                                                    //-th 
+                                                    th Pedido
+                                                    th N° de entrega
+                                                    th Prod. pedidos
+                                                    th Prod. entregados
+                                                    th Prod. faltantes
+                                                    th Fecha entreg.
+                                                    th  -
+                                            tbody
+                                                tr(v-for="(pedido, index) in entregaStore.pedidos")
+                                                    //-td 
+                                                        i.fa.fa-circle.text-danger
+                                                    td {{pedido.ped_numpedido}}
+                                                    td {{pedido.documento}}
+                                                    td {{pedido.cant_pedido}}
+                                                    td {{pedido.cant_entrega}}
+                                                    td {{pedido.cant_pedido - pedido.cant_entrega}}
+                                                    td {{pedido.fecha_entrega}} {{pedido.hora}}
+                                                    td
+                                                        a(href="#", @click.prevent="zoomPedido(pedido.y, pedido.x)")
+                                                            i.fa.fa-map-marker
+                                                tr.table-sorry(v-show="entregaStore.pedidos.length < 1")
+                                                    td(colspan="5")
+                                                        span Lo sentimos, no hay entregas que mostrar :(
+                                        table.table.table-month(v-if="filter.rangetype == 'mensual' && filter.lapse == 'range'")
+                                            thead
+                                                tr
+                                                    //-th 
+                                                    th Pedido
+                                                    th Viajes
+                                                    th N° de productos
+                                                    th Fecha entreg.
+                                                    th  -
+                                            tbody
+                                                tr(v-for="(pedido, index) in entregaStore.pedidos")
+                                                    //-td 
+                                                        i.fa.fa-circle.text-danger
+                                                    td {{pedido.ped_numpedido}}
+                                                    td {{pedido.cant_entrega}}
+                                                    td {{pedido.cant_pedido}}
+                                                    td {{pedido.fecha_entrega}} {{pedido.hora}}
+                                                    td
+                                                        a(href="#", @click.prevent="zoomPedido(pedido.y, pedido.x)")
+                                                            i.fa.fa-map-marker
+                                                tr.table-sorry(v-show="entregaStore.pedidos.length < 1")
+                                                    td(colspan="5")
+                                                        span Lo sentimos, no hay entregas que mostrar :(
+                                #nav-graph-entrega.table-bloq.table-resp.tab-pane.fade(role="tabpanel" aria-labelledby="nav-graph-pedido-tab")
+                                    span Hello Grafico
+                    i.fa.fa-spinner.fa-spin.entregaLoad(style="display: none")
+                    .charge.entregaLoad(style="display: none")

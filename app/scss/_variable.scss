@@ -1,0 +1,103 @@
+/*Theme Colors*/
+$blue: #2B81B2;
+$purple: #6B2171;
+$orange: #FF9100;
+
+$background: #F5F5F5;
+$background-title: #272B2E;
+$background-blue: #274683;
+
+$blue-text: #3B74B7;
+$blue-border: #3B74B7;
+$black-text: #272B2E;
+$white-text: #DDDDDD;
+$white-title: #EEEEEE;
+
+$gradient-blue: #44609E;
+$gradient-mid: rgb(6, 8, 20);
+$gradient-purple: #6B2171;
+$gradient-xsi: rgb(68,96,158);
+$gradient: linear-gradient(180deg, rgba(68,96,158,1) 0%, rgba(74,86,151,1) 50%, rgba(107,33,113,1) 100%);
+$gradient-mz: -moz-linear-gradient(180deg, rgba(68,96,158,1) 0%, rgba(74,86,151,1) 50%, rgba(107,33,113,1) 100%);
+$gradient-wk: -webkit-linear-gradient(180deg, rgba(68,96,158,1) 0%, rgba(74,86,151,1) 50%, rgba(107,33,113,1) 100%);
+
+/*Theme Sizes*/
+$text-nav: 16px;
+$text-buttons: 12px;
+$text-paragraph: 16px;
+$text-paragraph-title: 19px;
+$text-section: 29px;
+$text-title: 47px;
+$text-titledesc: 19px;
+$footer: #e6e6e6;
+
+$topbar: #fff;
+$sidebar: #fff;
+$sidebar-white: #ffffff;
+$sidebar-alt:#e8eff0;
+$bodycolor: #fff;
+$headingtext: #2c2b2e;
+$bodytext: #54667a;
+$sidebar-text: #54667a;
+
+$light-text: #a6b7bf;
+$themecolor: #009efb;
+$themecolor-dark: #028ee1;
+
+$bodyfont: "glacial", sans-serif;
+
+/*bootstrap Color*/
+$danger: #f62d51;
+$success: #55ce63;
+$warning: #ffbc34;
+$primary: #7460ee;
+$info: #009efb;
+$inverse: #2f3d4a;
+$muted: #90a4ae;
+$dark: #263238;
+$light: #f2f7f8;
+$extra-light: #ebf3f5;
+
+/*Light colors*/
+$light-danger: #f9e7eb;
+$light-success: #e8fdeb;
+$light-warning: #fff8ec;
+$light-primary: #f1effd;
+$light-info: #cfecfe;
+$light-inverse: #f6f6f6;
+$light-megna: #e0f2f4; 
+
+
+
+$danger-dark: #e6294b;
+$success-dark: #4ab657;
+$warning-dark: #e9ab2e;
+$primary-dark: #6352ce;
+$info-dark: #028ee1;
+$red-dark: #d61f1f;
+$inverse-dark: #232a37;
+$dark-transparent:rgba(0, 0, 0, 0.05);
+
+/*Extra Variable*/
+$rgt: right;
+$lft: left;
+$border: rgba(120, 130, 140, 0.13);
+$table-border:#f3f1f1;
+$dark-text: #848a96;
+$radius: 4px;
+$form-brd: #d9d9d9;
+/*Preloader*/
+.preloader{
+    width: 100%;
+    height: 100%;
+    top:0px;
+    position: fixed;
+    z-index: 99999;
+    background: #fff;
+    .cssload-speeding-wheel{
+        position: absolute;
+        top: calc(50% - 3.5px);
+        left: calc(50% - 3.5px);
+    }
+}
+

@@ -1,0 +1,120 @@
+.btn-link{
+    padding: 7px;
+}
+.modal-new{
+    .form-group{
+        &>label{
+            font-weight: 500;
+            font-size: 13px;
+            display: block;
+            margin-bottom: .6rem;
+        }
+    }
+}
+#modalPedido{
+    .temp-pedido{
+        .lapse-detail{
+            margin-bottom: 5px;
+        }
+        span{
+            width: 40px;
+            display: inline-block;
+        }
+    }
+    .list-pedidos{
+        font-size: 13px;
+    }
+}
+#modalTrack{    
+    .filter-track{
+        a{
+            border: 1px solid #ccc;
+            color: #777;
+            margin-right: 2px;
+            &.active{
+                background: #666;
+                color: #eee;
+            }
+        }
+        .search-track{
+            display: inline-block;
+        }
+    }
+    .temp-track{
+        .track-lapse{
+            label{
+                margin-right: 10px;
+                &.active{
+                    font-weight: 400;
+                }
+            }
+        }        
+        .track-lapse-detail{
+            padding: 10px;
+            border: 1px solid #eee;
+            span{
+                width: 40px;
+                display: inline-block;
+            }
+            .lapse-detail{
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+.input-icon{
+    position: relative;
+    display: inline-block;
+    input, select{
+        padding: 5px 5px 5px 25px;
+        border-radius: 5px;
+        border: 1px solid #ccc;            
+    }
+    &.no-icon{
+        input, select{
+            padding-left: 5px;
+        }
+    }
+    .fa{
+        position: absolute;
+        left: 8px;
+        top: 10px;
+        opacity: .7;
+    }
+}
+.form-action{
+    margin: 0;
+    .do{
+        float: right;
+    }
+}
+.return-back{
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.table td{
+    padding: .5rem;
+}
+.table-sorry{
+    background: #f8f8f8;
+}
+
+#modalImport{   
+    .list-basem li span{
+        height: 30px;
+        display: block;
+        line-height: 30px;
+    }
+    p{
+        font-weight: 500;
+    }
+    img{
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+        margin-left: 10px;
+        vertical-align: top;
+        background: none;
+    }
+}

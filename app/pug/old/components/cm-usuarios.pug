@@ -1,0 +1,76 @@
+script#cm-usuarios-template(type='text/x-template')
+	#modalUsuarios.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modal privilegios', aria-hidden='true')
+		.modal-dialog.modal-lg(role='document')
+			.modal-content
+				.modal-header
+					h5.modal-title
+						i.fa.fa-calendar-check-o(aria-hidden='true')
+						|  Lista de usuario
+					template(v-if='actividades_show == 0')
+						a.btn.btn-primary.gg.title-btn(href='#', @click='addActvidad()')
+							i.fa.fa-plus(aria-hidden='true')
+							|  Agregar Usuario
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+				.modal-body
+					.list-expedientes(v-if='actividades_show == 0')
+						.titular-form
+						// <b class="p-l-5">Resultados:</b>
+						#privileges-list.titular-list.table-responsive
+							table.table.table-hover
+								thead
+									tr
+										th N°
+										th Usuario
+										// <th>Contraseña</th>
+										th Nombres
+										th Tipo de Usuario
+								tbody.text-center
+									tr(v-for='(users, index) in cuActividadStore.users', :key='index', @click='selectUsuario(users.id_usuario)')
+										td.text-center.table-name {{ index + 1 }}
+										td.text-left.table-name {{ users.usuario }}
+										// <td class="text-left table-name">{{ users.contrasena }}</td>
+										td.text-left.table-name {{ users.id_personal }}
+										template(v-if="users.tipo_usuario == 'gl_administrador'")
+											td.text-left.table-name Administrador
+										template(v-if="users.tipo_usuario == 'gl_repartidor'")
+											td.text-left.table-name Repartidor
+					.detail-expediente.container(v-if='actividades_show > 0', style="width: 400px")
+						.form-group
+							a.mt-0(href='#', @click='go_back()', style="margin-bottom: 10px;")
+								| << Volver atras
+							.row
+								.col-sm-4
+									label(for='') N°:
+								.col-sm-8
+									input.form-control(type='text', v-model='cuActividadStore.select_usuarios.id_usuario', disabled='')
+							.row
+								.col-sm-4
+									label(for='') Nombre:
+								.col-sm-8
+									input.form-control(type='text', rows='4', cols='40', v-model='cuActividadStore.select_usuarios.id_personal')
+							.row
+								.col-sm-4
+									label(for='') Usuario: 
+								.col-sm-8
+									input.form-control(type='text', v-model='cuActividadStore.select_usuarios.usuario')
+							.row
+								.col-sm-4
+									label(for='', v-if='actividades_show == 2') Cambiar contraseña: 
+									label(for='', v-if='actividades_show == 1') Contraseña: 
+								.col-sm-8
+									input.form-control(type='password', v-model='cuActividadStore.select_usuarios.contrasena')
+							.row
+								.col-sm-4
+									label(for='') Tipo de Usuario:
+								.col-sm-8
+									select.custom-select(name='file_type', v-model='cuActividadStore.select_usuarios.tipo_usuario')
+										option(value='gl_administrador') Administrador
+										option(value='gl_repartidor') Repartidor
+							.row
+								.col-sm-3(v-if='actividades_show == 2')
+									a.btn.btn-secondary(href='#', @click.prevent='deleteUsuario(cuActividadStore.select_usuarios.id_usuario)') Eliminar
+								.col-sm-3(v-if='actividades_show == 2')
+									a.btn.btn-primary(href='#', @click.prevent='updateUsuario(cuActividadStore.select_usuarios.id_usuario)') Actualizar
+								#btnRegisterActividad.col-sm-3(v-if='actividades_show == 1')
+									a.btn.btn-primary(href='#', @click.prevent='registerUsuario()') Agregar

@@ -1,0 +1,42 @@
+{  
+   "data":[  
+        {  
+            "id_capa":1,
+            "indice":"Junin",
+            "tipo":"video",
+            "nombre":"Abc DEF Cdd"
+        },
+        {  
+            "id_capa":2,
+            "indice":"Junin",
+            "tipo":"grafico",
+            "nombre":"Vue Computed"
+        },
+        {  
+            "id_capa":3,
+            "indice":"Lima",
+            "tipo":"grafico",
+            "nombre":"MVC Spring"
+        },
+        {  
+            "id_capa":5,
+            "indice":"Tarapoto",
+            "tipo":"grafico",
+            "nombre":"Abc DEF Cdd"
+        },
+        {  
+            "id_capa":5,
+            "indice":"Ama1123-2018-Q2",
+            "tipo":"video",
+            "nombre":"MVC Spring"
+        },
+        {  
+            "id_capa":4,
+            "indice":"Ama1-2018-Q2",
+            "tipo":"video",
+            "nombre":"Abc DEF Cdd"
+        }
+   ],
+   "total":6,
+   "success":true
+}

@@ -1,0 +1,31 @@
+script#cm-coordenadas-template(type='text/x-template')
+    #modalCoordenadas.modal.fade.in(role='dialog', aria-labelledby='modal coordenadas', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header.modal-draggable
+                    h5#exampleModalLabel.modal-title Coordenadas
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    .form-group.m-b-10
+                        label(style='width: 85px', for='') Sistema Ref.: 
+                        select.custom-input(v-model="coorSR")
+                            option(value='EPSG:4326') WGS 84
+                            option(value='EPSG:24877') PSAD 56 UTM Zona 17S
+                            option(value='EPSG:24878') PSAD 56 UTM Zona 18S
+                            option(value='EPSG:24879') PSAD 56 UTM Zona 19S
+                            option(value='EPSG:32717') WGS 84 UTM Zona 17S
+                            option(value='EPSG:32718') WGS 84 UTM Zona 18S
+                            option(value='EPSG:32719') WGS 84 UTM Zona 19S
+                            option(value='EPSG:3857') Pseudo Mercator
+                    .form-group.m-b-10
+                        label(style='width: 85px', for='') Longitud: 
+                        input.custom-input(type='text', v-model='coorLongitud')
+                    .form-group.m-b-10
+                        label(style='width: 85px', for='') Latitud: 
+                        input.custom-input(type='text', v-model='coorLatitud')
+                    .form-group.m-b-10
+                        label(style='width: 85px', for='') Zoom: 
+                        input.custom-input(type='text', v-model='coorZoom')
+                    .form-group.text-right(@click='showCoordenada')
+                        a.btn.btn-primary(href='#') Mostrar

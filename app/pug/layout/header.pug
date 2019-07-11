@@ -1,0 +1,30 @@
+//- pug/header.pug
+header
+	nav.navbar.top-navbar.navbar-toggleable-md
+		//- Logo
+		.navbar-header
+			a.navbar-brand(href='index.html')
+				//- Logo ideasG
+				h1.hidden Icetart Group
+				img.logo(src='assets/images/logo.png', alt='Icetart group logo')
+		.menu.navbar-collapse
+			//- User profile and toggle nav items			
+			ul.navbar-nav.navbar-right.my-lg-0
+				li.nav-item
+					a.nav-link.nav-toggler.text-muted.waves-effect.waves-dark(href='#')
+						i.icn.icn-menu
+				li.active
+					a.nav-link.line-effect(href='servicios.html', role='button')
+						|  Servicios
+				li
+					a.nav-link.line-effect(href='proceso.html', role='button')
+						|  Proceso
+				li
+					a.nav-link.line-effect(href='portafolio.html', role='button')
+						|  Portfolio
+				li
+					a.nav-link.line-effect(href='unete.html', role='button')
+						|  Unete
+				li.li-btn
+					a.btn.btn-border(href='contacto.html', role='button')
+						|  Contáctanos

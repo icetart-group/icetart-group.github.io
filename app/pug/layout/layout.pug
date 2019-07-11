@@ -1,0 +1,44 @@
+doctype html
+html(lang='es')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		// Tell the browser to be responsive to screen width
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='Icetart Group - Transformación digital para empoderar a tu organización y tus clientes')
+		meta(name='author', content='Icetart')
+		// Favicon icon
+		link(rel='shortcut icon', type='image/x-icon', sizes='16x16', href='assets/images/favicon.ico')
+		title Icetart Group
+		// Bootstrap Core CSS
+		link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+		// Custom CSS
+		link(href='css/style.css', rel='stylesheet')
+		// HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		// WARNING: Respond.js doesn't work if you view the page via file://
+		//[if lt IE 9]
+			script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+			script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+			[endif]
+	body.fix-header
+		// ==============================================================
+		// Preloader - style you can find in spinners.css
+		// ==============================================================
+		.preloader
+			svg.circular(viewBox='25 25 50 50')
+				circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
+		//- Component Template		
+		.wrapper
+			include header.pug
+			block content
+			include footer.pug
+		//- All Jquery
+		script(src='assets/plugins/jquery/jquery.min.js')
+		//- Bootstrap tether Core JavaScript
+		script(src='assets/plugins/bootstrap/js/tether.min.js')
+		script(src='assets/plugins/bootstrap/js/bootstrap.min.js')
+		//- stickey kit
+		script(src='assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')
+		//- Custom JavaScript
+		script(src='js/custom.js')
+		// endbuild

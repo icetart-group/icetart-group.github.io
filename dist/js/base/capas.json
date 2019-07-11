@@ -1,0 +1,124 @@
+{  
+   "data":[        
+	    {
+            "id_capa": "3",
+            "tabla_capa": "sp_departamentos",
+            "nomb_capa": "Departamentos",
+            "tg_config_grupo": {
+                "id_grupo": "2",
+                "grupo": "Limites"
+            }
+        },
+	    {
+            "id_capa": "4",
+            "tabla_capa": "sp_provincias",
+            "nomb_capa": "Provincias",
+            "tg_config_grupo": {
+                "id_grupo": "2",
+                "grupo": "Limites"
+            }
+        },
+        {
+            "id_capa": "5",
+            "tabla_capa": "sp_distritos",
+            "nomb_capa": "Distritos",
+            "tg_config_grupo": {
+                "id_grupo": "2",
+                "grupo": "Limites"
+            }
+        },
+        {
+            "id_capa": "6",
+            "tabla_capa": "sp_manzanas",
+            "nomb_capa": "Manzanas",
+            "tg_config_grupo": {
+                "id_grupo": "2",
+                "grupo": "Limites"
+            }
+        },
+        {
+            "id_capa": "8",
+            "tabla_capa": "sp_zonasv",
+            "nomb_capa": "Zonas de venta",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Pedidos"
+            }
+        },
+        {
+            "id_capa": "1",
+            "tabla_capa": "sp_pedidos_infm",
+            "nomb_capa": "Pedidos",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Pedidos"
+            }
+        },
+        {
+            "id_capa": "2",
+            "tabla_capa": "sp_pdv",
+            "nomb_capa": "Punto de venta",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Pedidos"
+            }
+        },
+        {
+            "id_capa": "9",
+            "tabla_capa": "sp_track_infm",
+            "nomb_capa": "Trackeo",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Pedidos"
+            }
+        },
+        {
+            "id_capa": "10",
+            "tabla_capa": "sp_entrega",
+            "nomb_capa": "Entrega",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Pedidos"
+            }
+        },
+        {
+            "id_capa": "11",
+            "tabla_capa": "sp_POI",
+            "nomb_capa": "Puntos de Interes",
+            "tg_config_grupo": {
+                "id_grupo": "1",
+                "grupo": "Puntos de Interes"
+            }
+        },
+        {
+            "id_capa": "12",
+            "tabla_capa": "sp_pdv_cal",
+            "nomb_capa": "Volumen de venta",
+            "tg_config_grupo": {
+                "id_grupo": "3",
+                "grupo": "Tematicos"
+            }
+        },
+        {
+            "id_capa": "13",
+            "tabla_capa": "sp_zonas_pdv",
+            "nomb_capa": "Puntos de venta por zona",
+            "tg_config_grupo": {
+                "id_grupo": "3",
+                "grupo": "Tematicos"
+            }
+        },
+        {
+            "id_capa": "14",
+            "tabla_capa": "mzna_nse_region",
+            "nomb_capa": "Nivel socioeconomico",
+            "tg_config_grupo": {
+                "id_grupo": "3",
+                "grupo": "Tematicos"
+            }
+        }
+        
+   ],
+   "total":8,
+   "success":true
+}

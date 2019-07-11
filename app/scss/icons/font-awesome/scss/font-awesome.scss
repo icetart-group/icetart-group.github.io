@@ -1,0 +1,27 @@
+/*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@import "variables";
+@import "mixins";
+@import "path";
+@import "core";
+@import "larger";
+@import "fixed-width";
+@import "list";
+@import "bordered-pulled";
+@import "animated";
+@import "rotated-flipped";
+@import "stacked";
+@import "icons";
+@import "screen-reader";
+
+.fa-measure{
+	background: url("../fonts/fa-measure.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 16px;
+    opacity: .9;
+}

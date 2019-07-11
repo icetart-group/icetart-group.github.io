@@ -1,0 +1,14 @@
+{  
+   "data":[  
+      	{  
+	        "id_proyectos":1,            
+            "nombre_proyecto":"CONSTRUCCIÓN DE CAPTACIÓN SUPERFICIAL DE AGUA; EN EL (LA) CONSTRUCCIÓN IRRIGACIÓN YAULICOCHA - PAZOS DISTRITO DE PAZOS, PROVINCIA TAYACAJA"
+      	},
+	    {  
+	        "id_proyectos":2,            
+	        "nombre_proyecto":"CONSTRUCCIÓN DE CAPTACIÓN SUPERFICIAL DE AGUA; EN EL (LA) CONSTRUCCIÓN DE CANAL DE RIEGO - SANTA ROSA DE PINCO, DISTRITO DE PAUCARBAMBA, PROVINCIA DE CHURCAMPA, DEPARTAMENTO HUANCAVELICA"
+      	}
+   ],
+   "total":2,
+   "success":true
+}

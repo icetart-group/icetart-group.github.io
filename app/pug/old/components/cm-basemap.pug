@@ -1,0 +1,15 @@
+script#cm-basemap-template(type='text/x-template')
+    #modalBaseMap.modal(tabindex='-1', role='dialog', aria-labelledby='modal config', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content.w-400
+                .modal-header
+                    h5.modal-title Mapa base
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                .modal-body
+                    ul.list-ub.list-basem.text-center.row.mheight
+                        li.list-group-item.col-sm-4(v-for='(base, index) in basemapStore', :key='index')
+                            label(:for="'base'+base.id")
+                                input(type='radio', :id="'base'+base.id", :value='base.id', @change='changeBase', v-model='selectBase')
+                                img(:src="'assets/images/'+base.img")
+                                span {{base.name}}

@@ -1,0 +1,82 @@
+script#cm-infolayer-template(type='text/x-template')
+	#modalInfoLayer.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modal config', aria-hidden='true')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					h5.modal-title Información de capas
+					a.btn.btn-primary.mh-btn(href="#", @click="addReg()", v-show="!stateForm")
+						i.fa.fa-plus
+						|  Agregar
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+				.modal-body
+					.form-group.row.w-500
+						.col-sm-12.mheight(v-show="!stateForm")
+							div(v-if="stateService")
+								.alert.alert-success.alert-dismissible(role='alert')
+									button.close(type='button', @click.prevent='stateClose()')
+										span(aria-hidden='true') ×
+									|  Los datos fueron actualizados exitosamente.
+							.nivelChange.row.p-b-20
+								.col-sm-3
+									label.p-t-10 Nivel:
+								.col-sm-6
+									select.form-control(name="", v-model="stateNivel")
+										option(value="departamento") Departamental
+										option(value="provincia") Provincial
+										option(value="distrito") Distrital
+										option(value="proyecto") Proyecto
+										option(value="obra") Obra
+							.nivelDep(v-show="stateNivel == 'departamento'")
+								h5 Departamentos
+								table.table.table-hover.table-sm
+									thead
+										tr
+											th Lugar 
+											th Tipo
+											th Nombre
+											th  - 
+									tbody
+										tr(v-for='(info, index) in inf_dep', :key='index')
+											td {{info.indice}}
+											td {{info.tipo}}
+											td {{info.nombre}}
+											td 
+												a.text-danger(href="#", @click.prevent="deleteReg(info.id_url_capa)", v-if="loginStore.user.tipo_usuario == 'gl_administrador'")
+													i.fa.fa-trash
+							.nivelProv(v-show="stateNivel == 'provincia'")
+								h5 Provincias
+								table.table.table-hover.table-sm
+									thead
+										tr
+											th Lugar 
+											th Tipo
+											th Nombre
+											th  - 
+									tbody
+										tr(v-for='(info, index) in inf_prov', :key='index')
+											td {{info.indice}}
+											td {{info.tipo}}
+											td {{info.nombre}}
+											td 
+												a.text-danger(href="#", @click.prevent="deleteReg(info.id_url_capa)", v-if="loginStore.user.tipo_usuario == 'gl_administrador'")
+													i.fa.fa-trash
+							.nivelDist(v-show="stateNivel == 'distrito'")
+								h5 Distritos
+								table.table.table-hover.table-sm
+									thead
+										tr
+											th Lugar 
+											th Tipo
+											th Nombre
+											th  - 
+									tbody
+										tr(v-for='(info, index) in inf_dist', :key='index')
+											td {{info.indice}}
+											td {{info.tipo}}
+											td {{info.nombre}}
+											td 
+												a.text-danger(href="#", @click.prevent="deleteReg(info.id_url_capa)", v-if="loginStore.user.tipo_usuario == 'gl_administrador'")
+													i.fa.fa-trash
+					i.fa.fa-spinner.fa-spin.infoLLoad
+					.charge.infoLLoad
