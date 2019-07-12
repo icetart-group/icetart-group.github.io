@@ -1,4 +1,7 @@
 extends pug/layout/layout.pug
+append config
+	- pageTitle = 'Nuestro Proceso'
+	- currentPage = 'proceso'
 
 block content
 	include pug/pages/process.pug

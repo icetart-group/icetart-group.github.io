@@ -322,7 +322,7 @@ header{
                 border-bottom: 2px solid $orange;
                 width: 0;
             }
-            &.active, &:hover:not(.li-btn){
+            &.active, &:hover:not(.li-btn), &.active:not(.li-btn){
                 &:after{
                     transition: all .8s;
                     content: '';                    
@@ -335,6 +335,17 @@ header{
             &:hover{                
                 .nav-link{
                     opacity: 1;
+                }
+            }
+            &.li-btn.active{
+                &:after{
+                    content: ''; 
+                    border-bottom: 0;
+                    width: 0
+                }
+                a{
+                    transition: all .5s;
+                    border: 2px solid $blue;
                 }
             }
             a{

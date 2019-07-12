@@ -1,4 +1,7 @@
 extends pug/layout/layout.pug
+append config
+	- pageTitle = 'Home'
+	- currentPage = 'Home'
 
 block content
 	include pug/pages/home.pug

@@ -1,5 +1,5 @@
 block config
-	include ../config.pug
+	include pug/config.pug
 
 doctype html
 html(lang='es')
@@ -17,10 +17,7 @@ html(lang='es')
 		meta(property="og:description", content="Transformación digital para empoderar a tu organización y tus clientes.")
 		//- Favicon icon
 		link(rel='shortcut icon', type='image/x-icon', sizes='16x16', href='assets/images/favicon.ico')
-		if(currentPage == 'Home')
-			title= siteName
-		else
-			title= pageTitle.concat(' - ', siteName)
+		title= 'Me perdi'.concat(' - ', siteName)
 		//- Bootstrap Core CSS
 		link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
 		//- Custom CSS
@@ -32,19 +29,16 @@ html(lang='es')
 			script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
 			[endif]
 	body.fix-header
-		//- ==============================================================
-		//- Preloader - style you can find in spinners.css
-		//- ==============================================================
-		.preloader
-			svg.circular(viewBox='25 25 50 50')
-				circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
 		//- Component Template		
 		.wrapper
-			include header.pug
-			block content
-			include footer.pug
-		include messenger.pug
-		//- All Jquery
-		script(src='assets/plugins/jquery/jquery.min.js')
-		//- Custom JavaScript
-		script(src='js/custom.js')
+			div.is-404.no-footer.text-center(style="margin-top: 100px;")
+				img(src="assets/images/logo-lost.png", alt="", style="max-height: 80px;")
+				br
+				br
+				br
+				h4 ERROR 404
+				h3 Ups! La página que buscas no existe
+				br
+				a.btn.btn-fill(href="index.html", style="margin-top: 10px;") Volvamos al inicio :)
+		include pug/layout/messenger.pug		
+

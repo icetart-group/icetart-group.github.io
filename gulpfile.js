@@ -59,7 +59,7 @@ function jsDeploy(){
 }
 
 function pug(){
-  return src('app/**/*.pug')
+  return src('app/*.pug')
 	  .pipe(gulp_pug({pretty: true})) // pipe to pug plugin
 	  .on('error', handleError)
 	  .pipe(dest('dist')) // tell gulp our output folder
@@ -76,7 +76,7 @@ async function watching(){
 
 function build(done){
 	console.log("Hello gulp");
-	series(pug, sass, js, jsDeploy, assets, fonts)(done);
+	series(pug, sass, js, assets, fonts)(done);
 	console.log("Bye gulp");
 };
 

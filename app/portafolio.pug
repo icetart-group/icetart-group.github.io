@@ -1,4 +1,7 @@
 extends pug/layout/layout.pug
+append config
+	- pageTitle = 'Portafolio'
+	- currentPage = 'portfolio'
 
 block content
 	include pug/pages/portfolio.pug

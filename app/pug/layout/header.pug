@@ -1,3 +1,6 @@
+block config
+	include ../config.pug
+
 //- pug/header.pug
 header
 	nav.navbar.top-navbar.navbar-toggleable-md
@@ -13,9 +16,22 @@ header
 				li.nav-item
 					a.nav-link.nav-toggler.text-muted.waves-effect.waves-dark(href='#')
 						i.icn.icn-menu
-				li.active
-					a.nav-link.line-effect(href='servicios.html', role='button')
-						|  Servicios
+				each val, index in menu
+					if(currentPage == val.current)
+						if(val.current != 'contacto')
+							li.active
+								a.nav-link.line-effect(href=val.url.concat('.html'), role='button')= val.name
+						else
+							li.li-btn
+								a.btn.btn-border(href=val.url.concat('.html'), role='button')= val.name
+					else
+						if(val.current != 'contacto')
+							li
+								a.nav-link.line-effect(href=val.url.concat('.html'), role='button')= val.name
+						else
+							li.li-btn
+								a.btn.btn-border(href=val.url.concat('.html'), role='button')= val.name
+			//-ul
 				li
 					a.nav-link.line-effect(href='proceso.html', role='button')
 						|  Proceso
