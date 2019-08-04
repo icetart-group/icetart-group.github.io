@@ -301,13 +301,16 @@
         transition: all 1s;
     }
     img{
-        max-height: 30px;
+        max-height: 35px;
     }
     article{
         display: inline-block;
         p{
             font-size: 20px;
-            margin: 30px 0 50px;
+            margin: 0;
+        }
+        .social{
+            margin-bottom: 80px;
         }
     }
 }

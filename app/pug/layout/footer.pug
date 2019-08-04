@@ -1,19 +1,35 @@
 //- footer
 footer.footer
 	.container
-		h3#contacto Contacto
-		p
-			| ¿Estas listo para contarnos tu idea?
-			br
-			br
-			| Escríbenos a 
-			span.font-bold
-				a(href="mailto:hola@icetart.com") 
-					| hola
-					span.no-font &#64;
-					| icetart&#46;com
-			br
-			| o puedes llamarnos al 
-			span.font-bold
-				a(href="tel:+51935426697") (+51) 935 426 697
-		img.logo(src='assets/images/logo-color.png', alt='Icetart group logo')
+		//-h3#contacto 
+		.row
+			.col-md-6
+				img.logo(src='assets/images/logo-color.png', alt='Icetart group logo')
+				ul
+					each val, index in menu
+						li
+							a.line-effect(href=val.url.concat('.html'), role='button')= val.name
+						if (menu.length - 1) != index
+							|  |
+			.col-md-6
+				p
+					| ¿Estas listo para contarnos tu idea?
+					br
+					br
+					| Escríbenos a 
+					span.font-bold
+						a(href="mailto:hola@icetart.com") 
+							| hola
+							span.no-font &#64;
+							| icetart&#46;com
+					br
+					| o puedes llamarnos al 
+					span.font-bold
+						a(href="tel:+51935426697") (+51) 935 426 697
+				ul.social
+					li
+						a(href="https://www.facebook.com/icetart/")
+							img(src="assets/images/icn-facebook.png", alt="Icetart Facebook")
+					li
+						a(href="https://www.youtube.com/channel/UCbtRJkQaT7gpCBiHid7YMCw/")
+							img(src="assets/images/icn-youtube.png", alt="Icetart Youtube")
